@@ -165,6 +165,8 @@
 		CCF4F5A21AB272950098A934 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Mbusi Hlatshwayo";
 				TargetAttributes = {
@@ -417,6 +419,7 @@
 				CCF4F5CB1AB272950098A934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCF4F5CC1AB272950098A934 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +428,7 @@
 				CCF4F5CE1AB272950098A934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

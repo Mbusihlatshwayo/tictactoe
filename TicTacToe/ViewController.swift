@@ -69,8 +69,8 @@ class ViewController: UIViewController {
     @IBAction func buttonPressed(sender: AnyObject) {
         
             if (gameState[sender.tag] == 0 && winner == 0) {
-            var Ximage = UIImage(named: "ticTacX.png")
-            var Oimage = UIImage(named: "ticTackO.png")
+            let Ximage = UIImage(named: "ticTacX.png")
+            let Oimage = UIImage(named: "ticTackO.png")
         
             if isEven(turnNumber) {
             
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
             
             if (winner != 0) {
                 winnerLabel.hidden = false
-                println(winner)
+                print(winner)
                 if (winner == 1) {
                     UIView.animateWithDuration(0.5, animations: { () -> Void in
                         self.winnerLabel.center = CGPointMake(self.winnerLabel.center.x + 400, self.winnerLabel.center.y)
