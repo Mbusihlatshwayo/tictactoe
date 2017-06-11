@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func isEven(turn: Int) ->Bool {
+    func isEven(_ turn: Int) ->Bool {
         if turn%2 == 0 {
             return true
         } else {
@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     @IBOutlet var button8: UIButton!
 
     
-    @IBAction func newGame(sender: AnyObject) {
+    @IBAction func newGame(_ sender: AnyObject) {
         
         winner = 0
         turnNumber = 1
-        winnerLabel.center = CGPointMake(winnerLabel.center.x - 400, winnerLabel.center.y)
-        winnerLabel.hidden = true
+        winnerLabel.center = CGPoint(x: winnerLabel.center.x - 400, y: winnerLabel.center.y)
+        winnerLabel.isHidden = true
         gameState = [0,0,0,0,0,0,0,0,0]
         
         /*crashes program?
@@ -52,21 +52,21 @@ class ViewController: UIViewController {
         */
         
     
-        button0.setImage(nil, forState: .Normal)
-        button1.setImage(nil, forState: .Normal)
-        button2.setImage(nil, forState: .Normal)
-        button3.setImage(nil, forState: .Normal)
-        button4.setImage(nil, forState: .Normal)
-        button5.setImage(nil, forState: .Normal)
-        button6.setImage(nil, forState: .Normal)
-        button7.setImage(nil, forState: .Normal)
-        button8.setImage(nil, forState: .Normal)
+        button0.setImage(nil, for: UIControlState())
+        button1.setImage(nil, for: UIControlState())
+        button2.setImage(nil, for: UIControlState())
+        button3.setImage(nil, for: UIControlState())
+        button4.setImage(nil, for: UIControlState())
+        button5.setImage(nil, for: UIControlState())
+        button6.setImage(nil, for: UIControlState())
+        button7.setImage(nil, for: UIControlState())
+        button8.setImage(nil, for: UIControlState())
     
         
     }
     
     
-    @IBAction func buttonPressed(sender: AnyObject) {
+    @IBAction func buttonPressed(_ sender: AnyObject) {
         
             if (gameState[sender.tag] == 0 && winner == 0) {
             let Ximage = UIImage(named: "ticTacX.png")
@@ -74,12 +74,12 @@ class ViewController: UIViewController {
         
             if isEven(turnNumber) {
             
-                sender.setImage(Ximage, forState: .Normal)
+                sender.setImage(Ximage, for: UIControlState())
                 gameState[sender.tag] = 2
     
             } else {
             
-                sender.setImage(Oimage, forState: .Normal)
+                sender.setImage(Oimage, for: UIControlState())
                 gameState[sender.tag] = 1
                 
             }
@@ -92,21 +92,21 @@ class ViewController: UIViewController {
             }
             
             if (winner != 0) {
-                winnerLabel.hidden = false
+                winnerLabel.isHidden = false
                 print(winner)
                 if (winner == 1) {
-                    UIView.animateWithDuration(0.5, animations: { () -> Void in
-                        self.winnerLabel.center = CGPointMake(self.winnerLabel.center.x + 400, self.winnerLabel.center.y)
+                    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                        self.winnerLabel.center = CGPoint(x: self.winnerLabel.center.x + 400, y: self.winnerLabel.center.y)
                     })
                     winnerLabel.text = "O won!!"
                 } else {
-                    UIView.animateWithDuration(0.5, animations: { () -> Void in
-                        self.winnerLabel.center = CGPointMake(self.winnerLabel.center.x + 400, self.winnerLabel.center.y)
+                    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                        self.winnerLabel.center = CGPoint(x: self.winnerLabel.center.x + 400, y: self.winnerLabel.center.y)
                     })
                     winnerLabel.text = "X won!!"
                 }
             }
-            turnNumber++
+            turnNumber += 1
         }
     } 
     
@@ -122,9 +122,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {
-        winnerLabel.hidden = true
-        winnerLabel.center = CGPointMake(winnerLabel.center.x - 400, winnerLabel.center.y)
+    override func viewDidAppear(_ animated: Bool) {
+        winnerLabel.isHidden = true
+        winnerLabel.center = CGPoint(x: winnerLabel.center.x - 400, y: winnerLabel.center.y)
     }
 
 }
